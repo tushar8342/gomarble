@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: inter
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.layout {
+  display: flex;
+  gap: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 751px) {
+  .layout {
+    display: block;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.layout .content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-grow: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.breadcrumb {
+  display: flex;
+  gap: 24px;
+  list-style-type: "/  ";
+  padding: 8px 16px;
+  border-bottom: 1px solid lightgray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.breadcrumb a {
+  color: blue;
+  text-decoration: none;
+}
+
+.menu {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-right: 1px solid lightgray;
+}
+
+.menu a {
+  color: black;
+}
+
+.menu .active {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 751px) {
+  .menu {
+    border-right: none;
+    border-bottom: 1px solid lightgray;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.menu ul {
+  padding-left: 16px;
+}
+
+.page-container {
+  @apply mx-auto my-2 py-2 px-4 bg-slate-50 border rounded drop-shadow-md;
+}
+
+.page-title {
+  @apply text-xl font-bold;
+}
+
+.page-header {
+  @apply py-4 flex justify-between items-center mb-6;
+}
+
+.bar-chart-container {
+  /* Disable shadows for bars by making the shadow transparent */
+  .recharts-bar-rectangle {
+    filter: drop-shadow(0px 0px 0px transparent);
   }
 }
